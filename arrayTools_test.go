@@ -10,6 +10,7 @@ func TestInitArrayTools(t *testing.T) {
 
 }
 func TestAppend(t *testing.T) {
+	t.SkipNow()
 	a := make([]int, 5, 6)
 	b := make([]int, 10)
 	for i := 0; i < len(a); i++ {
