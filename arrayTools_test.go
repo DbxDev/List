@@ -2,6 +2,7 @@ package List
 
 import (
 	"DbxDev/Logger"
+	"strconv"
 	"testing"
 )
 
@@ -27,4 +28,24 @@ func TestAppend(t *testing.T) {
 	Logger.Debugf("%v , len=%v , cap=%v", a, len(a), cap(a))
 	a = AppendInt(a, b...)
 	Logger.Debugf("%v , len=%v , cap=%v", a, len(a), cap(a))
+}
+func TestShuffleInt(i *testing.T) {
+	size := 10
+	a := make([]int, size)
+	for i := 0; i < size; i++ {
+		a[i] = i
+	}
+	Logger.Debugf("Original : %v", a)
+	ShuffleInt(a)
+	Logger.Debugf("Shuffled : %v", a)
+}
+func TestShuffleString(i *testing.T) {
+	size := 10
+	a := make([]string, size)
+	for i := 0; i < size; i++ {
+		a[i] = "Element-" + strconv.Itoa(i)
+	}
+	Logger.Debugf("Original : %v", a)
+	ShuffleString(a)
+	Logger.Debugf("Shuffled : %v", a)
 }

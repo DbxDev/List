@@ -1,5 +1,9 @@
 package List
 
+import (
+	"math/rand"
+)
+
 func AppendInt(slice []int, elements ...int) []int {
 	ori_size := len(slice)
 	final_size := len(slice) + len(elements)
@@ -16,4 +20,22 @@ func AppendInt(slice []int, elements ...int) []int {
 	slice = slice[:final_size]
 	copy(slice[ori_size:], elements)
 	return slice
+}
+
+// Shuffle an array of int. Same values move at random position
+func ShuffleInt(slice []int) {
+	N := len(slice)
+	for i := 0; i < len(slice); i++ {
+		rand := i + rand.Intn(N-i)
+		slice[i], slice[rand] = slice[rand], slice[i]
+	}
+}
+
+// Shuffle an array of string. Same values move at random position
+func ShuffleString(slice []string) {
+	N := len(slice)
+	for i := 0; i < len(slice); i++ {
+		rand := i + rand.Intn(N-i)
+		slice[i], slice[rand] = slice[rand], slice[i]
+	}
 }
